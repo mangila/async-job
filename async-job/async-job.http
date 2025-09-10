@@ -1,0 +1,12 @@
+@host = http://localhost:5079
+
+POST {{host}}/start-job
+Accept: application/json
+
+> {%
+    client.global.set("guid", response.body)
+%}
+
+###
+
+GET {{host}}/status-job/{{guid}}
